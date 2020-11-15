@@ -26,14 +26,9 @@
                     </form>
                 </li>
             </ul>
-            <img class="nav-img" src="img/113.jpg">
-            <div class="nav-account">
-                <p class="nav-account-name">
-                    Dr.Pepper
-                </p>
                 <p style="margin-bottom: 0">
-                    <a class="nav-link" href="settings.html">settings</a>
-                    <a class="nav-link" href="login.html">log out</a>
+                    <a class="nav-link" href="login.html">log in</a>
+                    <a class="nav-link" href="signup.html">register</a>
                 </p>
             </div>
         </div>
@@ -46,28 +41,50 @@
         <div class="row">
             <div class="col-9">
                 <div class="row title">
-                    <p class="header">Tag: bender</p>
+                    <p class="header">Registration</p>
                 </div>
-                <div class="row question-box">
-                    <div class="col-3">
-                        <img class="question-img" src="img/113.jpg">
-                        <div class="question-text">schetchik</div>
+                <form>
+                    <div class="form-group row">
+                        <label for="inputLogin" class="col-sm-2 col-form-label">Login</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputLogin" placeholder="Enter your login here">
+                        </div>
                     </div>
-                    <div class="col-9" style="position: relative">
-                        <div class="question-title"><a href="question.html" style="text-decoration: underline">My que</a></div>
-                        <div class="question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Enter your email here">
                         </div>
-                        <div class="row links">
-                            <div class="col-3">
-                                <a class="nav-link" href="question.html">answer(3)</a>
-                            </div>
-                            <div class="col-9">
-                                Tags:
-                                <a class="nav-link" href="tag_search.html">black-jack</a>
-                                <a class="nav-link" href="tag_search.html">bender</a>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputNickname" class="col-sm-2 col-form-label">Nickname</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputNickname" placeholder="Enter your nickname here">
                         </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-5">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword1" class="col-sm-2 col-form-label">Repeat password</label>
+                        <div class="col-sm-5">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Repeat your password here">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputAvatar" class="col-sm-2 col-form-label">Upload avatar</label>
+                        <div class="col-sm-5">
+                            <input type="file" class="form-control" id="inputAvatar" style="margin: 10px">
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-10">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register!</button>
                     </div>
                 </div>
             </div>
@@ -83,15 +100,6 @@
             </div>
         </div>
     </div>
-    <nav aria-label="Page navigation example" style="position: absolute; bottom: 0; right: 50%">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
 </main>
 
 <script src="js/jquery.slim.min.js"></script>
