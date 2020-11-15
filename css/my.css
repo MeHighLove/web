@@ -32,6 +32,7 @@ code {
 
 .main-img {
     max-width: 175px;
+    max-height: 175px;
 }
 
 .question-title {
@@ -42,6 +43,11 @@ code {
 .nav-img {
     max-width: 60px;
     max-height: 60px;
+}
+
+.set-img {
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .nav-account {
