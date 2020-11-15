@@ -30,6 +30,10 @@ code {
     max-width: 150px;
 }
 
+.main-img {
+    max-width: 175px;
+}
+
 .question-title {
     font-size: 20px;
     font-weight: bold;
