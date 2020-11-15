@@ -45,66 +45,30 @@
     <div class="container">
         <div class="row">
             <div class="col-9">
-                <div class="row" style="margin-top: 50px">
+                <div class="row title">
+                    <p class="header">Tag: bender</p>
+                </div>
+                <div class="row question-box">
                     <div class="col-3">
-                        <img class="main-img" src="img/113.jpg">
+                        <img class="question-img" src="img/113.jpg">
                         <div class="question-text">schetchik</div>
                     </div>
                     <div class="col-9" style="position: relative">
-                        <div class="question-title">My que</div>
+                        <div class="question-title"><a href="question.html" style="text-decoration: underline">My que</a></div>
                         <div class="question-text">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
                         </div>
                         <div class="row links">
-                            <div class="col-12">
+                            <div class="col-3">
+                                <a class="nav-link" href="question.html">answer(3)</a>
+                            </div>
+                            <div class="col-9">
                                 Tags:
                                 <a class="nav-link" href="tag_search.html">black-jack</a>
                                 <a class="nav-link" href="tag_search.html">bender</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row question-box">
-                    <div class="col-3">
-                        <img class="question-img" src="img/113.jpg">
-                        <div class="question-text">schetchik</div>
-                    </div>
-                    <div class="col-9" style="position: relative">
-                        <div class="question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
-                        </div>
-                        <div class="row links">
-                            <div class="form-group form-check" style="position: absolute; bottom: 0">
-                                <input type="checkbox" class="form-check-input" id="Correct">
-                                <label class="form-check-label" for="Correct">Correct!</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row question-box">
-                    <div class="col-3">
-                        <img class="question-img" src="img/113.jpg">
-                        <div class="question-text">schetchik</div>
-                    </div>
-                    <div class="col-9" style="position: relative">
-                        <div class="question-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
-                        </div>
-                        <div class="row links">
-                            <div class="form-group form-check" style="position: absolute; bottom: 0">
-                                <input type="checkbox" class="form-check-input" id="Correct!">
-                                <label class="form-check-label" for="Correct!">Correct!</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <textarea class="col-sm-10 form-control" id="inputTitle" rows="5" placeholder="Enter Title" style="margin-bottom: 10px" required></textarea>
-                </div>
-                <div class="row">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Answer</button>
                 </div>
             </div>
             <div class="col-3">
@@ -119,6 +83,15 @@
             </div>
         </div>
     </div>
+    <nav aria-label="Page navigation example" style="position: absolute; bottom: 0; right: 50%">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
 </main>
 
 <script src="js/jquery.slim.min.js"></script>
