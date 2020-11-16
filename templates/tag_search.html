@@ -3,7 +3,7 @@
 
                 {% block content %}
                     <div class="row title">
-                        <p class="header">Tag: bender</p>
+                        <p class="header">Tag: {{ tag }}</p>
                     </div>
                     {% for question in questions %}
                         {% include 'inc/one_question.html' %}

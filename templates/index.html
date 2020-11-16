@@ -4,7 +4,7 @@
         {% block content %}
             <div class="row title">
               <p class="header">New Questions</p>
-              <a class="nav-link" href="index.html">Hot questions</a>
+              <a class="nav-link" href="{% url 'home' %}">Hot questions</a>
             </div>
             {% for question in questions %}
                 {% include 'inc/one_question.html' %}

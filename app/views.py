@@ -4,8 +4,15 @@ questions = [
     {
         'id' : idx,
         'title' : f'title {idx}',
-        'text' : 'text text',
+        'text' : f'text {idx}',
     } for idx in range(10)
+]
+
+answers = [
+    {
+        'id' : idx,
+        'text' : f'text{idx}',
+    } for idx in range(5)
 ]
 
 def index(request):
@@ -16,11 +23,14 @@ def index(request):
 def ask(request):
     return render(request, 'ask.html', {})
 
-def question_page(request):
-    return render(request, 'question.html', {})
-
 def tag_search(request):
     return render(request, 'tag_search.html', {
+        'questions' : questions,
+    })
+
+def tag_search(request, tg):
+    return render(request, 'tag_search.html', {
+        'tag' : tg,
         'questions' : questions,
     })
 
@@ -32,3 +42,10 @@ def login(request):
 
 def register(request):
     return render(request, 'signup.html', {})
+
+def question_page(request, pk):
+    question = questions[pk]
+    return render(request, 'question.html', {
+        'question' : question,
+        'answers' : answers,
+    })

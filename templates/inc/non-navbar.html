@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="index.html">Ask Pupkin</a>
+    <a class="navbar-brand" href="{% url 'home' %}">Ask Pupkin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,8 +15,8 @@
             </li>
         </ul>
         <p style="margin-bottom: 0">
-            <a class="nav-link" href="login.html">log in</a>
-            <a class="nav-link" href="signup.html">register</a>
+            <a class="nav-link" href="{% url 'login' %}">log in</a>
+            <a class="nav-link" href="{% url 'register' %}">register</a>
         </p>
     </div>
 </nav>
