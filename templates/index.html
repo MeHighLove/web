@@ -6,19 +6,10 @@
               <p class="header">New Questions</p>
               <a class="nav-link" href="index.html">Hot questions</a>
             </div>
-
-
             {% for question in questions %}
                 {% include 'inc/one_question.html' %}
             {% endfor %}
         {% endblock content %}
-        {% block right %}
-            <div class="tags-members">
-              <div class="header">Popular tags</div>
-              <div class="tag-text">perl python technopark mysql django</div>
-              <div class="header">Best Members</div>
-              <div><a class="nav-link" href="index.html">Mr.Freeman</a></div>
-              <div><a class="nav-link" href="index.html">Dr.House</a></div>
-              <div><a class="nav-link" href="index.html">Bender</a></div>
-            </div>
-        {% endblock right %}
+        {% block bottom %}
+            {% include 'inc/paginator.html' %}
+        {% endblock bottom %}

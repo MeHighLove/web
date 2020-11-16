@@ -16,14 +16,13 @@ def index(request):
 def ask(request):
     return render(request, 'ask.html', {})
 
-def question(request, pk):
-    question = questions[pk]
-    return render(request, 'question.html', {
-        'question' : question
-    })
+def question_page(request):
+    return render(request, 'question.html', {})
 
 def tag_search(request):
-    return render(request, 'tag_search.html', {})
+    return render(request, 'tag_search.html', {
+        'questions' : questions,
+    })
 
 def settings(request):
     return render(request, 'settings.html', {})
