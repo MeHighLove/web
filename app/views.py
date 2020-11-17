@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 questions = [
     {
         'id' : idx,
@@ -15,23 +17,26 @@ answers = [
     } for idx in range(5)
 ]
 
+def paginate(objects_list, request, per_page=10):
+    paginator = Paginator(objects_list, per_page)
+    page = request.GET.get('page', 1)
+    page = paginator.get_page(page)
+    return page
+
 def index(request):
+    lquestions = paginate(questions, request, 3)
     return render(request, 'index.html', {
-        'questions' : questions,
+        'questions' : lquestions,
     })
 
 def ask(request):
     return render(request, 'ask.html', {})
 
-def tag_search(request):
-    return render(request, 'tag_search.html', {
-        'questions' : questions,
-    })
-
 def tag_search(request, tg):
+    lquestions = paginate(questions, request, 3)
     return render(request, 'tag_search.html', {
         'tag' : tg,
-        'questions' : questions,
+        'questions' : lquestions,
     })
 
 def settings(request):
