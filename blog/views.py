@@ -4,6 +4,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from blog.models import Article
 
+from blog.models import Question
+
 questions = [
     {
         'id' : idx,
@@ -26,11 +28,11 @@ def paginate(objects_list, request, per_page=10):
     return page
 
 def index(request):
-    lquestions = paginate(questions, request, 3)
+    qqq = paginate(Question.objects.all(), request, 3)
     articles = Article.objects.published()
     return render(request, 'index.html', {
+        'questions' : qqq,
         'articles' : articles,
-        'questions' : lquestions,
     })
 
 def ask(request):

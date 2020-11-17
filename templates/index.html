@@ -6,10 +6,6 @@
               <p class="header">New Questions</p>
               <a class="nav-link" href="{% url 'home' %}">Hot questions</a>
             </div>
-            {% for a in articles %}
-                <h1>{{a.title}}</h1>
-                <p>{{a.text}}</p>
-            {% endfor %}
             {% for question in questions %}
                 {% include 'inc/one_question.html' %}
             {% endfor %}

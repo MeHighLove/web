@@ -6,9 +6,9 @@
         {% include 'inc/counter.html' %}
     </div>
     <div class="col-9" style="position: relative">
-        <div class="question-title"><a href="{% url 'question' pk=question.id %}" style="text-decoration: underline">{{question.title}}My que</a></div>
+        <div class="question-title"><a href="{% url 'question' pk=question.id %}" style="text-decoration: underline">{{question.title}}</a></div>
         <div class="question-text">
-            {{question.text}}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
+            {{question.text}}
         </div>
         <div class="row links">
             <div class="col-3">
@@ -16,7 +16,7 @@
             </div>
             <div class="col-9">
                 Tags:
-                <a class="nav-link" href="{% url 'tag' tg='black-jack' %}">black-jack</a>
+                <a class="nav-link" href="{% url 'tag' tg='black-jack' %}">{{question.tags}}</a>
                 <a class="nav-link" href="{% url 'tag' tg='bender' %}">bender</a>
             </div>
         </div>
