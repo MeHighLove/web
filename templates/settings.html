@@ -1,0 +1,53 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+
+                {% block content %}
+                <div class="row title">
+                    <p class="header">Settings: Dr.Pepper</p>
+                </div>
+                <form class="was-validated">
+                    <div class="form-group row">
+                        <label for="inputLogin" class="col-sm-2 col-form-label">Login</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputLogin" maxlength="40" required>
+                            <div class="invalid-feedback">
+                                Login Error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputEmail" maxlength="80" required>
+                            <div class="invalid-feedback">
+                                Incorrect Email
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputNickname" class="col-sm-2 col-form-label">Nickname</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="inputNickname" maxlength="40" required>
+                            <div class="invalid-feedback">
+                                Nickname Error
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">Upload avatar</div>
+                        <div class="col-sm-10">
+                            <img class="set-img" src="{% static 'img/113.jpg' %}">
+                            <input type="file" class="form-control" id="inputAvatar" style="margin: 10px" required>
+                            <div class="invalid-feedback">
+                                Choose file
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+                {% endblock content %}

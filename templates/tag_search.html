@@ -1,0 +1,14 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+
+                {% block content %}
+                    <div class="row title">
+                        <p class="header">Tag: {{ tag }}</p>
+                    </div>
+                    {% for question in questions %}
+                        {% include 'inc/one_question.html' %}
+                    {% endfor %}
+                {% endblock content %}
+                {% block bottom %}
+                    {% include 'inc/paginator.html' %}
+                {% endblock bottom %}

@@ -1,0 +1,35 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+
+                {% block content %}
+                <div class="row" style="margin-top: 50px">
+                    <div class="col-3">
+                        <img class="main-img" src="{% static 'img/113.jpg' %}">
+                        {% include 'inc/counter.html' %}
+                    </div>
+                    <div class="col-9" style="position: relative">
+                        <div class="question-title">{{ question.title }}My que</div>
+                        <div class="question-text">
+                            {{ question.text }}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
+                        </div>
+                        <div class="row links">
+                            <div class="col-12">
+                                Tags:
+                                <a class="nav-link" href="{% url 'tag' tg='black-jack' %}">black-jack</a>
+                                <a class="nav-link" href="{% url 'tag' tg='bender' %}">bender</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {% for answer in answers %}
+                    {% include 'inc/one_answer.html' %}
+                {% endfor %}
+                <hr>
+                <div class="row">
+                    <textarea class="col-sm-10 form-control" id="inputTitle" rows="5" placeholder="Enter answer" style="margin-bottom: 10px" required></textarea>
+                </div>
+                <div class="row">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Answer</button>
+                </div>
+                {% endblock content %}
