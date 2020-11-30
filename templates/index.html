@@ -6,7 +6,7 @@
               <p class="header">New Questions</p>
               <a class="nav-link" href="{% url 'home' %}">Hot questions</a>
             </div>
-            {% for question in questions %}
+            {% for question in elems %}
                 {% include 'inc/one_question.html' %}
             {% endfor %}
         {% endblock content %}

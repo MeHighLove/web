@@ -31,7 +31,7 @@ def index(request):
     qqq = paginate(Question.objects.all(), request, 3)
     articles = Article.objects.published()
     return render(request, 'index.html', {
-        'questions' : qqq,
+        'elems' : qqq,
         'articles' : articles,
     })
 
@@ -55,8 +55,9 @@ def register(request):
     return render(request, 'signup.html', {})
 
 def question_page(request, pk):
+    qqq = paginate(answers, request, 3)
     question = questions[pk]
     return render(request, 'question.html', {
         'question' : question,
-        'answers' : answers,
+        'elems' : qqq,
     })

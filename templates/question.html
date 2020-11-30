@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <hr>
-                {% for answer in answers %}
+                {% for answer in elems %}
                     {% include 'inc/one_answer.html' %}
                 {% endfor %}
                 <hr>
@@ -33,3 +33,6 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Answer</button>
                 </div>
                 {% endblock content %}
+                {% block bottom %}
+                    {% include 'inc/paginator.html' %}
+                {% endblock bottom %}

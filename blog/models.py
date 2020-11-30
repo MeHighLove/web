@@ -34,7 +34,7 @@ class Article(models.Model):
         verbose_name_plural='Статьи'
 
 class Tag(models.Model):
-    tg = models.CharField(max_length=256, verbose_name='Тег')
+    tg = models.CharField(unique=True, max_length=256, verbose_name='Тег')
 
     def __str__(self):
         return self.tg

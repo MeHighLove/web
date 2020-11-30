@@ -2,11 +2,17 @@
 
 <div class="row question-box">
     <div class="col-3">
+        <div class="question-title">
+            {{question.author}}
+        </div>
         <img class="question-img" src="{% static 'img/113.jpg' %}">
         {% include 'inc/counter.html' %}
     </div>
     <div class="col-9" style="position: relative">
         <div class="question-title"><a href="{% url 'question' pk=question.id %}" style="text-decoration: underline">{{question.title}}</a></div>
+        <div class="data">
+            {{question.date_create}}
+        </div>
         <div class="question-text">
             {{question.text}}
         </div>
