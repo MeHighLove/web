@@ -15,7 +15,11 @@
 <header>
     <!-- Fixed navbar -->
     {% block navbar %}
-        {% include 'inc/navbar.html' %}
+    {% if user.is_authenticated %}
+    {% include 'inc/navbar.html' %}
+    {% else %}
+    {% include 'inc/non-navbar.html' %}
+    {% endif %}
     {% endblock navbar %}
 </header>
 

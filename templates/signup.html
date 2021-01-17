@@ -1,5 +1,6 @@
 {% extends 'inc/base.html' %}
 {% load static %}
+{% load bootstrap4 %}
 
 
                 {% block navbar %}
@@ -9,66 +10,16 @@
                 <div class="row title">
                     <p class="header">Registration</p>
                 </div>
-                <form class="was-validated">
-                    <div class="form-group row">
-                        <label for="inputLogin" class="col-sm-2 col-form-label">Login</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="inputLogin" placeholder="Enter your login here" maxlength="40" required>
-                            <div class="invalid-feedback">
-                                Login Error
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Enter your email here" maxlength="80" required>
-                            <div class="invalid-feedback">
-                                Wrong Email
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputNickname" class="col-sm-2 col-form-label">Nickname</label>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" id="inputNickname" placeholder="Enter your nickname here" maxlength="40" required>
-                            <div class="invalid-feedback">
-                                Nickname Error
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-5">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password here" maxlength="20" required>
-                            <div class="invalid-feedback">
-                                Wrong password
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputPassword1" class="col-sm-2 col-form-label">Repeat password</label>
-                        <div class="col-sm-5">
-                            <input type="password" class="form-control" id="inputPassword1" placeholder="Repeat your password here" maxlength="20" required>
-                            <div class="invalid-feedback">
-                                Password Error
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="inputAvatar" class="col-sm-2 col-form-label">Upload avatar</label>
-                        <div class="col-sm-5">
-                            <input type="file" class="form-control" id="inputAvatar" style="margin: 10px" required>
-                            <div class="invalid-feedback">
-                                Choose file
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <form class="was-validated" method="POST" novalidate>
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-10">
+                        {% buttons %}
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Register!</button>
+                        {% endbuttons %}
+                </form>
                     </div>
                 </div>
                 {% endblock content %}

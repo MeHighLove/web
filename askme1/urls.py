@@ -28,4 +28,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('question/<int:pk>/', views.question_page, name='question'),
     path('hot/', views.hot, name='hot'),
+    path('logout/', views.logout, name='logout')
 ]

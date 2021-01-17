@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Tag(models.Model):
     tg = models.CharField(unique=True, max_length=256, verbose_name='Тег')
@@ -17,13 +18,13 @@ class ProfileManager(models.Manager):
 
 class Profile(models.Model):
     #email = models.EmailField(max_length=256, default='', verbose_name='Email')
-    nickname = models.CharField(max_length=256, default='', verbose_name='Nickname')
     avatar = models.ImageField(blank=True, default='static/img/113.jpg')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     objects = ProfileManager()
 
     def __str__(self):
-        return self.nickname
+        return self.user.username
 
     class Meta:
         verbose_name='Профиль'
