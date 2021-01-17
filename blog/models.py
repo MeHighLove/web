@@ -33,7 +33,7 @@ class QuestionManager(models.Manager):
     def tag_find(self, tag):
         return self.filter(tags=tag)
     def id_find(self, idx):
-        return self.filter(id=idx).first
+        return self.get(id=idx)
     def hot(self):
         return self.order_by('-rating')
 
@@ -76,7 +76,7 @@ class Answer(models.Model):
         verbose_name='Ответ'
         verbose_name_plural='Ответы'
 
-class RatingQuestionsManager(models.Model):
+class RatingManager(models.Manager):
     def fr_to(self, to, fr):
         return self.filter(que=to).filter(prof=fr)
 
@@ -95,7 +95,7 @@ class RatingQuestions(models.Model):
     prof = models.ForeignKey("Profile", on_delete=models.CASCADE, verbose_name='От')
     que = models.ForeignKey('Question', on_delete=models.CASCADE, verbose_name='Кому')
 
-    objects = RatingQuestionsManager()
+    objects = RatingManager()
 
     def __str__(self):
         return self.prof
