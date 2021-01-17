@@ -27,4 +27,5 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('register/', views.register, name='register'),
     path('question/<int:pk>/', views.question_page, name='question'),
+    path('hot/', views.hot, name='hot'),
 ]

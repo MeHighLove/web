@@ -1,0 +1,15 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row title">
+    <p class="header">Hot Questions</p>
+    <a class="nav-link" href="{% url 'home' %}">New questions</a>
+</div>
+{% for question in elems %}
+{% include 'inc/one_question.html' %}
+{% endfor %}
+{% endblock content %}
+{% block bottom %}
+{% include 'inc/paginator.html' %}
+{% endblock bottom %}

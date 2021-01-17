@@ -31,7 +31,12 @@
                 {% block right %}
                 <div class="tags-members">
                     <div class="header">Popular tags</div>
-                    <div class="tag-text">perl python technopark mysql django</div>
+                    <div>
+                        <a class="tag-text" href="{% url 'tag' tg='1' %}">1</a>
+                        <a class="tag-text" href="{% url 'tag' tg='python' %}"> python</a>
+                        <a class="tag-text" href="{% url 'tag' tg='technopark' %}">technopark</a>
+                        <a class="tag-text" href="{% url 'tag' tg='mysql' %}">mysql</a>
+                    </div>
                     <div class="header">Best Members</div>
                     <div><a class="nav-link" href="{% url 'home' %}">Mr.Freeman</a></div>
                     <div><a class="nav-link" href="{% url 'home' %}">Dr.House</a></div>

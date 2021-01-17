@@ -2,24 +2,8 @@ from django.shortcuts import render
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from blog.models import Article
-
 from blog.models import Question
-
-questions = [
-    {
-        'id' : idx,
-        'title' : f'title {idx}',
-        'text' : f'text {idx}',
-    } for idx in range(10)
-]
-
-answers = [
-    {
-        'id' : idx,
-        'text' : f'text{idx}',
-    } for idx in range(5)
-]
+from blog.models import Answer
 
 def paginate(objects_list, request, per_page=10):
     paginator = Paginator(objects_list, per_page)
@@ -28,18 +12,16 @@ def paginate(objects_list, request, per_page=10):
     return page
 
 def index(request):
-    qqq = paginate(Question.objects.all(), request, 3)
-    articles = Article.objects.published()
+    qqq = paginate(Question.objects.all().order_by('-date_create'), request, 3)
     return render(request, 'index.html', {
         'elems' : qqq,
-        'articles' : articles,
     })
 
 def ask(request):
     return render(request, 'ask.html', {})
 
 def tag_search(request, tg):
-    lquestions = paginate(questions, request, 3)
+    lquestions = paginate(Question.objects.tag_find(tg), request, 3)
     return render(request, 'tag_search.html', {
         'tag' : tg,
         'questions' : lquestions,
@@ -55,9 +37,15 @@ def register(request):
     return render(request, 'signup.html', {})
 
 def question_page(request, pk):
-    qqq = paginate(answers, request, 3)
-    question = questions[pk]
+    qqq = paginate(Answer.objects.q_find(pk), request, 3)
+    question = Question.objects.id_find(pk)
     return render(request, 'question.html', {
         'question' : question,
+        'elems' : qqq,
+    })
+
+def hot(request):
+    qqq = paginate(Question.objects.hot(), request, 3)
+    return render(request, 'hot.html', {
         'elems' : qqq,
     })

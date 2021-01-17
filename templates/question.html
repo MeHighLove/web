@@ -4,19 +4,26 @@
                 {% block content %}
                 <div class="row" style="margin-top: 50px">
                     <div class="col-3">
+                        <div class="question-title">
+                            {{question.author}}
+                        </div>
                         <img class="main-img" src="{% static 'img/113.jpg' %}">
                         {% include 'inc/counter.html' %}
                     </div>
                     <div class="col-9" style="position: relative">
-                        <div class="question-title">{{ question.title }}My que</div>
+                        <div class="question-title">{{ question.title }}</div>
+                        <div class="date">
+                            {{question.date_create}}
+                        </div>
                         <div class="question-text">
-                            {{ question.text }}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
+                            {{ question.text }}
                         </div>
                         <div class="row links">
                             <div class="col-12">
                                 Tags:
-                                <a class="nav-link" href="{% url 'tag' tg='black-jack' %}">black-jack</a>
-                                <a class="nav-link" href="{% url 'tag' tg='bender' %}">bender</a>
+                                {% for tg in question.tags.all %}
+                                <a class="nav-link" href="{% url 'tag' tg %}">{{tg}}</a>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

@@ -2,12 +2,18 @@
 
 <div class="row question-box">
     <div class="col-3">
+        <div class="question-title">
+            {{answer.author}}
+        </div>
         <img class="question-img" src="{% static 'img/113.jpg' %}">
-        {% include 'inc/counter.html' %}
+        {% include 'inc/counter_ans.html' %}
     </div>
     <div class="col-9" style="position: relative">
+        <div class="date">
+            {{answer.date_create}}
+        </div>
         <div class="question-text">
-            {{ answer.text }}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet aperiam debitis dolor dolorum ea iusto magni maiores molestias neque nihil nisi non officiis omnis perspiciatis, quas quis saepe sed.
+            {{ answer.text }}
         </div>
         <div class="row links">
             <div class="form-group form-check" style="position: absolute; bottom: 0">
