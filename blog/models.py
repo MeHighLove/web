@@ -17,7 +17,6 @@ class ProfileManager(models.Manager):
         return self.filter(id=profile_id)
 
 class Profile(models.Model):
-    #email = models.EmailField(max_length=256, default='', verbose_name='Email')
     avatar = models.ImageField(blank=True, default='static/img/113.jpg')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 

@@ -14,10 +14,10 @@
                 </form>
             </li>
         </ul>
-        <img class="nav-img" src="{% static 'img/113.jpg' %}">
+        <img class="nav-img" src="{{ user.profile.avatar.url }}">
         <div class="nav-account">
             <p class="nav-account-name">
-                Dr.Pepper
+                {{ user.username }}
             </p>
             <p style="margin-bottom: 0">
                 <a class="nav-link" href="{% url 'settings' %}">settings</a>

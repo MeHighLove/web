@@ -11,7 +11,7 @@
                 </div>
                 <form class="was-validated" method="POST" action="/login/">
                     {% csrf_token %}
- {% bootstrap_form form %}
+                    {% bootstrap_form form %}
                     {% buttons %}
                             <button class="btn btn-primary" type="submit">Log in!</button>
                     {% endbuttons %}

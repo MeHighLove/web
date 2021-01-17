@@ -1,0 +1,18 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+<!-- Begin page content -->
+{% block content %}
+<div class="row title">
+    <p class="header">ADD TAG</p>
+</div>
+<form class="needs-validation" method="POST" novalidate>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button class="btn btn-primary" type="submit">ADD!</button>
+    {% endbuttons %}
+</form>
+<a href="{% url 'ask' %}" style="text-decoration: underline">Ask_question</a>
+{% endblock content %}
