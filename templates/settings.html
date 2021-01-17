@@ -4,7 +4,7 @@
 
                 {% block content %}
                 <div class="row title">
-                    <p class="header">Settings: Dr.Pepper</p>
+                    <p class="header">Settings: {{ user.username }}</p>
                 </div>
                 <form class="was-validated" method="POST" novalidate>
                     {% csrf_token %}
@@ -13,4 +13,5 @@
                             <button class="btn btn-primary" type="submit">Save</button>
                             {% endbuttons %}
                 </form>
+                <a href="{% url 'avatar_change' %}" style="text-decoration: underline">Change_avatar</a>
                 {% endblock content %}

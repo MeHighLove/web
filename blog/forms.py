@@ -29,7 +29,11 @@ class AnswerForm(forms.ModelForm):
 class SettingsForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
-    avatar = forms.ImageField(required=False)
 
 class TagForm(forms.Form):
     tag = forms.CharField()
+
+class AvatarForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['avatar']

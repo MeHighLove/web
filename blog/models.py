@@ -17,7 +17,7 @@ class ProfileManager(models.Manager):
         return self.filter(id=profile_id)
 
 class Profile(models.Model):
-    avatar = models.ImageField(blank=True, default='static/img/113.jpg')
+    avatar = models.ImageField(upload_to='avatar/%Y/%m/%d', default='113.jpg')
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     objects = ProfileManager()
@@ -75,3 +75,31 @@ class Answer(models.Model):
     class Meta:
         verbose_name='Ответ'
         verbose_name_plural='Ответы'
+
+class RatingQuestionsManager(models.Model):
+    def fr_to(self, to, fr):
+        return self.filter(que=to).filter(prof=fr)
+
+    def change_rating(self, qid, fr, action):
+        question = Question.objects.id_find(qid)
+        rate = RatingQuestions.objects.create(prof=fr, que=question)
+        rate.save()
+        if action == "like":
+            question.rating = question.rating + 1
+        else:
+            question.rating = question.rating - 1
+        question.save()
+        return question.rating
+
+class RatingQuestions(models.Model):
+    prof = models.ForeignKey("Profile", on_delete=models.CASCADE, verbose_name='От')
+    que = models.ForeignKey('Question', on_delete=models.CASCADE, verbose_name='Кому')
+
+    objects = RatingQuestionsManager()
+
+    def __str__(self):
+        return self.prof
+
+    class Meta:
+        verbose_name='Рейтинг вопросов'
+        verbose_name_plural='Рейтинги вопросов'

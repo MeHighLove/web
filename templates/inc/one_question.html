@@ -7,6 +7,10 @@
         </div>
         <img class="question-img" src="{% static 'img/113.jpg' %}">
         {% include 'inc/counter.html' %}
+        <div>
+            <a href="#" class="js-vote" data-action="like" data-qid="{{ question.pk }}">up</a>
+            <a href="#" class="js-vote" data-action="dislike" data-qid="{{ question.pk }}">down</a>
+        </div>
     </div>
     <div class="col-9" style="position: relative">
         <div class="question-title"><a href="{% url 'question' pk=question.id %}" style="text-decoration: underline">{{question.title}}</a></div>

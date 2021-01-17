@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.views.decorators.http import require_POST
 from django.contrib import auth
-
-from blog.models import Question, Profile
+from django.http import JsonResponse
+from blog.models import Question, Profile, RatingQuestions
 from blog.models import Answer, Tag
-from blog.forms import LoginForm, AskForm, RegisterForm, AnswerForm, SettingsForm, TagForm
+from blog.forms import LoginForm, AskForm, RegisterForm, AnswerForm, SettingsForm, TagForm, AvatarForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -116,6 +116,7 @@ def register(request):
                 user.refresh_from_db()
                 prof = Profile.objects.create(user = user)
                 prof.save()
+                auth.login(request, user)
                 return redirect('home')
 
     ctx={'form': form}
@@ -168,3 +169,32 @@ def add_tag(request):
             return redirect('add_tag')
     ctx={'form': form}
     return render(request, 'add_tag.html', ctx)
+
+@login_required
+def avatar_change(request):
+    form_class=AvatarForm
+    if request.method == 'GET':
+        form = form_class()
+    else:
+        form = form_class(data=request.POST, files=request.FILES,
+                          instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('avatar_change'))
+    ctx={'form': form}
+    return render(request, 'avatar_change.html', ctx)
+
+@require_POST
+@login_required
+def vote(request):
+    data=request.POST
+    qid = data['qid']
+    action = data['action']
+    prof = request.user.profile
+    rate = RatingQuestions.objects.fr_to(qid, prof)
+    if not rate:
+        new_rate = RatingQuestions.objects.change_rating(qid, prof, action)
+        response = {"response": new_rate, "success": True}
+    else:
+        response = {"response": 0, "success": False}
+    return JsonResponse(response)

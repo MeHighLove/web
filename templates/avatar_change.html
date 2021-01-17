@@ -1,0 +1,17 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="row title">
+    <p class="header">Settings: {{ user.username }}</p>
+</div>
+<form class="was-validated" method="POST" novalidate enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button class="btn btn-primary" type="submit">Save</button>
+    {% endbuttons %}
+</form>
+<a href="{% url 'settings' %}" style="text-decoration: underline">Other_changes</a>
+{% endblock content %}
